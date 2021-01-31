@@ -1,0 +1,7 @@
+<div class="iter">
+    <p *ngFor="let  comic of comics">
+        {{comic.id}}
+        {{comic.title}}
+        <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
+    </p>
+</div>

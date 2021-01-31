@@ -1,0 +1,18 @@
+a.active {
+    border-bottom: 3px solid #4447E2;
+    color: #4447E2;
+}
+.navbar-collapse{
+    text-align: center;
+}
+h1 {
+    color: rgb(236, 29, 36);
+}
+nav {
+    display: flex;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+    background-color: #1C1C24!important;
+}
