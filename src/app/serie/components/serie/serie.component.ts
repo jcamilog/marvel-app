@@ -2,6 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 import { SerieService } from '@core/serie.service';
+import { detailSerie } from '@models/serie/series.model';
 
 @Component({
   selector: 'app-serie',
@@ -10,6 +11,7 @@ import { SerieService } from '@core/serie.service';
 })
 export class SerieComponent implements OnInit {
   serie: any = [];
+  data: detailSerie;
 
   limit = 20;
   offset = 0;
@@ -23,15 +25,14 @@ export class SerieComponent implements OnInit {
   gerSeries(): void {
     this.serieService.getSeries(this.limit, this.offset)
     .subscribe( serie => {
-      // Esto seria sobre escribir todo el array
-      // this.serie = serie;
       this.serie = this.serie.concat(serie);
     });
   }
   getSerieId(id): void {
     this.serieService.getSerie(id)
     .subscribe( data => {
-      console.log(data);
+      this.data = data;
+      console.log(data)
     })
   }
 

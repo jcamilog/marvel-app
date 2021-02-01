@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { ComicsService } from '@core/comics.service';
+import { detailComic } from '@models/comics/comics.model';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  comic: any;
+  comic: detailComic;
 
   constructor(
     private comicsService: ComicsService,
@@ -26,6 +27,7 @@ export class DetailComponent implements OnInit {
     this.comicsService.getComic(id)
     .subscribe(comic => {
       this.comic = comic;
+      console.log(comic);
     });
   }
 

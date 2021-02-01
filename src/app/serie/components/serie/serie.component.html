@@ -10,7 +10,7 @@
                 </p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button (click)="getSerieId(series.id)" class="btn">Detail</button>
+                <button mat-raised-button (click)="getSerieId(series.id)" class="btn" data-bs-toggle="modal" data-bs-target="#Modal">Detail</button>
             </mat-card-actions>
         </mat-card>
     </div>
@@ -23,3 +23,28 @@
 <ngx-spinner color=" #4447E2" type = "ball-scale-ripple-multiple">
     <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{data?.data?.results[0]?.title}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>Creators</h3>
+          <p>{{data?.data?.results[0]?.creators.items[0].name}} - {{data?.data?.results[0]?.creators.items[0].role}}</p>
+          <p>{{data?.data?.results[0]?.creators.items[1].name}} - {{data?.data?.results[0]?.creators.items[1].role}}</p>
+          <p>{{data?.data?.results[0]?.creators.items[2].name}} - {{data?.data?.results[0]?.creators.items[2].role}}</p>
+          <h3>stories</h3>
+          <p>{{data?.data?.results[0]?.stories.items[0].name}} - {{data?.data?.results[0]?.stories.items[0].type}}</p>
+          <p>{{data?.data?.results[0]?.stories.items[1].name}} - {{data?.data?.results[0]?.stories.items[1].type}}</p>
+          <p>{{data?.data?.results[0]?.stories.items[2].name}} - {{data?.data?.results[0]?.stories.items[2].type}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" mat-raised-button data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>

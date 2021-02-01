@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { detailSerie, serieResponse } from '@models/serie/series.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,13 @@ export class SerieService {
     private http: HttpClient,
   ) { }
 
-  getSeries(limit: number, offset: number): Observable<any> {
-    return this.http.get<any>(`${environment.ApiMarvel}series?ts=1&apikey=${this.publicKey}&hash=${this.hash}&limit=${limit}&offset=${offset}`)
+  getSeries(limit: number, offset: number): Observable<serieResponse> {
+    return this.http.get<serieResponse>(`${environment.ApiMarvel}series?ts=1&apikey=${this.publicKey}&hash=${this.hash}&limit=${limit}&offset=${offset}`)
     .pipe(
       map((data: any) => data.data.results )
     );
   }
-  getSerie(id): Observable<any> {
-    return this.http.get<any>(`${environment.ApiMarvel}series/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
+  getSerie(id: serieResponse): Observable<detailSerie> {
+    return this.http.get<detailSerie>(`${environment.ApiMarvel}series/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
   }
 }

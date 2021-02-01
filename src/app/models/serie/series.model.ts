@@ -1,5 +1,5 @@
 // tslint:disable-next-line: class-name
-export interface comicsResponse {
+export interface serieResponse {
     title: string;
     thumbnail: {
         extension: string;
@@ -8,28 +8,16 @@ export interface comicsResponse {
     id: string;
 }
 // tslint:disable-next-line: class-name
-export interface detailComic {
+export interface detailSerie {
     data: {
         results: [
             {
                 id: string;
                 title: string;
-                description: string;
                 thumbnail: {
                     extension: string;
                     path: string
                 };
-                format: string;
-                prices: [
-                    {
-                        price: string;
-                        type: string
-                    }
-                ];
-                series: {
-                    name: string;
-                    resourceURI: string
-                }
                 stories: {
                     items: [
                         {

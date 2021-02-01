@@ -5,19 +5,23 @@ import { ComicsService } from '@core/comics.service';
 
 import { debounceTime } from 'rxjs/operators';
 
+import { Router } from '@angular/router';
+import { comicsResponse } from '@models/comics/comics.model';
+
 @Component({
   selector: 'app-comics',
   templateUrl: './comics.component.html',
   styleUrls: ['./comics.component.scss']
 })
 export class ComicsComponent implements OnInit {
-  comics: any;
+  comics: comicsResponse;
   title = '';
   limit = 20;
   offset = 0;
   searchFiel = new FormControl();
   constructor(
-    private comicsService: ComicsService
+    private comicsService: ComicsService,
+    private router: Router
   ) { }
   ngOnInit(): void {
     this.search(this.title);

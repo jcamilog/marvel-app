@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { comicsResponse, detailComic } from '@models/comics/comics.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,14 @@ export class ComicsService {
     private http: HttpClient,
   ) { }
 
-  getComicsTitle(title?: string, limit?: number, offset?: number): Observable<any> {
+  getComicsTitle(title?: string, limit?: number, offset?: number): Observable<comicsResponse> {
     const request = ( title === '' ) ? `${environment.ApiMarvel}comics?ts=1&apikey=${this.publicKey}&hash=${this.hash}&limit=${limit}&offset=${offset}` : `${environment.ApiMarvel}comics?ts=1&apikey=${this.publicKey}&hash=${this.hash}&title=${title}&limit=${limit}&offset=${offset}`;
-    return this.http.get<any>(request)
+    return this.http.get<comicsResponse>(request)
     .pipe(
       map((data: any) => data.data.results )
     );
   }
-  getComic(id): Observable<any> {
-    return this.http.get<any>(`${environment.ApiMarvel}comics/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
+  getComic(id: comicsResponse): Observable<detailComic> {
+    return this.http.get<detailComic>(`${environment.ApiMarvel}comics/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
   }
 }

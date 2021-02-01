@@ -18,8 +18,9 @@
     ],
     "paths": {
       "@shared/*":["src/app/shared/*"],
-      "@material/*": ["src/app/material*"],
-      "@core/*":["src/app/core/services/*"]
+      "@material/*": ["src/app/material/*"],
+      "@core/*":["src/app/core/services/*"],
+      "@models/*":["src/app/models/*"]
     }
   }
 }
