@@ -26,5 +26,17 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "api",
+      "urls": ["https://gateway.marvel.com/v1/public/**"],
+      "cacheConfig": {
+        "maxSize": 3,
+        "maxAge": "1d",
+        "strategy": "performance",
+        "timeout": "3s"
+      }
+    }
   ]
 }
