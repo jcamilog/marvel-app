@@ -17,10 +17,10 @@ The application has PWA functionality, with service worker for requests and loca
 
 The application has a direct search engine to the Marvel Api which returns a result per search, for the search engine to be effective, you have to enter the names as the Api brings them. Here are some key names to test the functionality of the search engine, these are optional, you can enter more names
 
-. Ant-Man
-. Marve 
-. X-Men 
-. Hulk
+. Ant-Man,
+. Marvel,
+. X-Men, 
+. Hulk,
 
 ##  List of Comics or Series
 
