@@ -21,6 +21,14 @@ const routes: Routes = [
       {
         path: 'comics',
         loadChildren: () => import ('./comics/comics.module').then(m => m.ComicsModule)
+      },
+      {
+        path: 'Series',
+        loadChildren: () => import ('./serie/serie.module').then(m => m.SerieModule)
+      },
+      {
+        path: '**',
+        loadChildren: () => import ('./not-found/not-found.module').then(m => m.NotFoundModule)
       }
     ]
   }

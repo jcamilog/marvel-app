@@ -1,7 +1,35 @@
-<div class="iter">
-    <p *ngFor="let  comic of comics">
-        {{comic.id}}
-        {{comic.title}}
-        <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
-    </p>
+<div class="container">
+    <div class="rov">
+        <div class="col-12">
+            <section class="main">
+                <h2 class="main__title">¿Que quieres buscar?</h2>
+                <input class="input" type="text" placeholder="Buscar..." [formControl]="searchFiel" >
+            </section>
+        </div>
+    </div>
+    <div class="row content">
+        <mat-card *ngFor="let  comic of comics" class="col-lg-3">
+            <mat-card-header>
+                <mat-card-title>{{comic.title | slice:0:20 }}...</mat-card-title>
+            </mat-card-header>
+            <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.title}}">
+            <mat-card-content>
+                <p>
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-raised-button [routerLink]="['/comics', comic?.id]" (click)="detail(comic.id)" class="btn">Detail</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="row">
+        <div class="col-12 conten__btn">
+            <button  mat-raised-button (click)="decrementar()" [disabled]="this.offset === 0" class="btn"> << back </button>
+            <button  mat-raised-button (click)="aumentar()" class="btn"> Next >> </button>
+        </div>
+    </div>
 </div>
+
+<ngx-spinner color=" #4447E2" type = "ball-scale-ripple-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

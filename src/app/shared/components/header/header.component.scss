@@ -1,18 +1,43 @@
-a.active {
-    border-bottom: 3px solid #4447E2;
-    color: #4447E2;
-}
-.navbar-collapse{
-    text-align: center;
+a { 
+    &.active {
+        border-bottom: 3px solid #4447E2;
+        color: #4447E2;
+    }
+    &:hover {
+        color: #4447E2;
+    }
 }
 h1 {
     color: rgb(236, 29, 36);
+    font-size: 35px;
+    font-weight: bold;
 }
-nav {
+mat-toolbar {
     display: flex;
     width: 100%;
     position: sticky;
     top: 0;
     z-index: 11;
     background-color: #1C1C24!important;
+}
+.spacer {
+    flex: 1 1 auto;
+}
+.content__btn{
+    margin: 10px;
+    button {
+        background-color: #4447E2;
+        color: white;
+        outline: none;
+    }   
+}
+
+@media screen and (max-width:560px){
+    .content__btn{
+        display: none;
+        button {
+            background-color: #4447E2;
+            color: white;
+        }   
+    }
 }

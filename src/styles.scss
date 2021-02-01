@@ -6,6 +6,81 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 p,h1,h2,a {
     color: white;
 }
+:root {
+    --thumb-color:#16161A;
+    --thumb-color-hover: #16161A;
+    --track-color: #16161A;
+    --mainColor: #4447E2;
+    --scroll-size: 10px;
+    --scroll-radius: calc(var(--scroll-size) / 2);
+}
+
+body,
 .main {
-    min-height: calc(100vh - 40px);
+    &::-webkit-scrollbar {
+        width: var(--scroll-size);
+        height: var(--scroll-size);
+        &-thumb {
+            background: var(--thumb-color);
+            border-radius: var(--scroll-radius);
+            &:hover,
+            &:active {
+                background: var(--thumb-color-hover);
+            }
+        }
+        &-track {
+            background: var(--track-color);
+            border-radius: var(--scroll-radius);
+        }
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.main {
+    overflow: auto;
+}
+
+.scroll-mainColor {
+    --thumb-color: var(--mainColor);
+    --thumb-color-hover: var(--mainColor);
+    --track-color: #e8e8e8;
+}
+.btn {
+    border: 2px solid var(--mainColor);
+    color: var(--mainColor);
+    background-color: white;
+    &:hover {
+        color: white;
+        background-color: var(--mainColor);
+    }
+}
+
+.container__btn{
+    margin: 10px;
+    button {
+        background-color: #4447E2;
+        color: white;
+        outline: none;
+    }   
+}
+@media screen and (min-width:561px){
+    .container__btn{
+        display: none;
+        button {
+            background-color: #4447E2;
+            color: white;
+        }   
+    }
+}
+@media screen and (max-width:560px){
+    .container__btn{
+        button {
+            background-color: #4447E2;
+            color: white;
+        }   
+    }
 }

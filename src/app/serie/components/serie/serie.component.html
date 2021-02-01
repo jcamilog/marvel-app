@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row content">
+        <mat-card *ngFor="let series of serie" class="col-lg-3">
+            <mat-card-header>
+                <mat-card-title>{{series.title| slice:0:20}}...</mat-card-title>
+            </mat-card-header>
+            <img src="{{series.thumbnail.path}}.{{series.thumbnail.extension}}" alt="">
+            <mat-card-content>
+                <p>
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button (click)="getSerieId(series.id)" class="btn">Detail</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button mat-raised-button (click)="aumentar()" class="btn">See more</button>
+        </div>
+    </div>
+</div>
+<ngx-spinner color=" #4447E2" type = "ball-scale-ripple-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
