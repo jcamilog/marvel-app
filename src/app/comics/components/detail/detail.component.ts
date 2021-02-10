@@ -27,7 +27,6 @@ export class DetailComponent implements OnInit {
     this.comicsService.getComic(id)
     .subscribe(comic => {
       this.comic = comic;
-      console.log(comic);
     });
   }
 

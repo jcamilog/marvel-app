@@ -25,5 +25,8 @@ export class ComicsService {
   }
   getComic(id: comicsResponse): Observable<detailComic> {
     return this.http.get<detailComic>(`${environment.ApiMarvel}comics/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
+    .pipe(
+      map((data: any) => data.data.results )
+    );
   }
 }

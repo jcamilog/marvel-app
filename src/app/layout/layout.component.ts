@@ -14,7 +14,6 @@ export class LayoutComponent implements OnInit {
   }
   @HostListener('window:beforeinstallprompt',['$event'])
   onBeforeInstallPrompt(event: Event) {
-    console.log(event)
     event.preventDefault();
     this.installEvent = event;
   }
@@ -23,7 +22,6 @@ export class LayoutComponent implements OnInit {
       this.installEvent.prompt();
       this.installEvent.userChoice
       .then(rta => {
-        console.log(rta);
       })
     }
   }

@@ -27,20 +27,24 @@
 <!-- Modal -->
 <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content" *ngFor="let datail of data ">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{data?.data?.results[0]?.title}}</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{datail.title}}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <h3>Creators</h3>
-          <p>{{data?.data?.results[0]?.creators.items[0].name}} - {{data?.data?.results[0]?.creators.items[0].role}}</p>
-          <p>{{data?.data?.results[0]?.creators.items[1].name}} - {{data?.data?.results[0]?.creators.items[1].role}}</p>
-          <p>{{data?.data?.results[0]?.creators.items[2].name}} - {{data?.data?.results[0]?.creators.items[2].role}}</p>
+          <ul>
+            <li *ngFor="let creator of datail.creators.items">
+              {{creator.name}} - {{creator.role}} 
+            </li>
+          </ul>
           <h3>stories</h3>
-          <p>{{data?.data?.results[0]?.stories.items[0].name}} - {{data?.data?.results[0]?.stories.items[0].type}}</p>
-          <p>{{data?.data?.results[0]?.stories.items[1].name}} - {{data?.data?.results[0]?.stories.items[1].type}}</p>
-          <p>{{data?.data?.results[0]?.stories.items[2].name}} - {{data?.data?.results[0]?.stories.items[2].type}}</p>
+          <ul>
+            <li *ngFor="let stories of datail.stories.items">
+                {{stories.name}}
+            </li>
+        </ul>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" mat-raised-button data-bs-dismiss="modal">Close</button>

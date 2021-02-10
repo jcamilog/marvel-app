@@ -23,5 +23,8 @@ export class SerieService {
   }
   getSerie(id: serieResponse): Observable<detailSerie> {
     return this.http.get<detailSerie>(`${environment.ApiMarvel}series/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
+    .pipe(
+      map((data: any) => data.data.results )
+    );
   }
 }

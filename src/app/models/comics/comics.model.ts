@@ -9,9 +9,6 @@ export interface comicsResponse {
 }
 // tslint:disable-next-line: class-name
 export interface detailComic {
-    data: {
-        results: [
-            {
                 id: string;
                 title: string;
                 description: string;
@@ -47,7 +44,4 @@ export interface detailComic {
                         }
                     ]
                 }
-            }
-        ]
-    };
 }

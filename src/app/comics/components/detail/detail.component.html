@@ -5,29 +5,61 @@
         </div>
     </div>
     <div class="row content">
-        <mat-card class="">
+        <mat-card class="" *ngFor="let comics of comic" >
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image">
-                    <img src="{{comic?.data.results[0].thumbnail.path}}.{{comic?.data.results[0].thumbnail.extension}}" alt="">
+                    <img src="{{comics.thumbnail.path}}.{{comics.thumbnail.extension}}" alt="{{comics.title}}">
                 </div>
-                <mat-card-title>{{comic?.data?.results[0]?.title}}</mat-card-title>
+                <mat-card-title>{{comics.title}}</mat-card-title>
                 <mat-card-subtitle>
-                    {{comic?.data?.results[0]?.format}} 
-                    <a href="{{comic?.data?.results[0]?.series.resourceURI}}">{{comic?.data?.results[0]?.series.name}}</a> 
+                    {{comics.format}}
                 </mat-card-subtitle>
             </mat-card-header>
-            <img src="{{comic?.data.results[0].thumbnail.path}}.{{comic?.data.results[0].thumbnail.extension}}" alt="">
+            <div class="container__img">
+                <img src="{{comics.thumbnail.path}}.{{comics.thumbnail.extension}}" alt="{{comics.title}}">
+            </div>
             <mat-card-content>
-                <p [innerHTML]="comic?.data?.results[0]?.description">
+                <p [innerHTML]="comics.description"></p>
+                <h4>Prices</h4>
+                <p *ngFor="let price of comics.prices">
+                    $ {{price.price}} - {{price.type}} 
                 </p>
-                <p>
-                    ${{comic?.data?.results[0]?.prices[0].price}}
-                    {{comic?.data?.results[0]?.prices[0].type}}
-                </p>
-                <div>
-                    <h3>Creators</h3>
-                    <p> {{comic?.data?.results[0]?.creators.items[0].name}} - {{comic?.data?.results[0]?.creators.items[0].role}} </p>
-                </div>
+                <mat-card>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <h3>Creators</h3>
+                            <ul>
+                                <li *ngFor="let creator of comics.creators.items">
+                                    {{creator.name}} - {{creator.role}} 
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h3>Character</h3>
+                            <ul>
+                                <li *ngFor="let character of comics.characters.items">
+                                    {{character.name}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h3>Stories</h3>
+                            <ul>
+                                <li *ngFor="let stories of comics.stories.items">
+                                    {{stories.name}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h3>CollectedIssues</h3>
+                            <ul>
+                                <li *ngFor="let collectedIssues of comics.collectedIssues" >
+                                     {{collectedIssues.name}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </mat-card>
             </mat-card-content>
         </mat-card>
     </div>
